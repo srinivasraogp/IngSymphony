@@ -2,30 +2,30 @@ package com.hcl.ingsymphony.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hcl.ingsymphony.dto.BreachDTO;
-import com.hcl.ingsymphony.entity.Breach;
-import com.hcl.ingsymphony.service.LoginServiceImpl;
+import com.hcl.ingsymphony.service.BreachServiceImpl;
 
 @RestController
 @RequestMapping("/ingsymphony")
 @CrossOrigin(allowedHeaders = { "*", "*/" }, origins = { "*", "*/" })
-public class LoginController {
+public class BreachController {
 	
 	@Autowired
-	LoginServiceImpl loginServiceImpl;
+	BreachServiceImpl breachServiceImpl;
 	
-	@PostMapping(value="/resolveTickets")
-	public Breach resolveTickets(@RequestBody BreachDTO breachDTO)
+	@PutMapping(value="/resolveTickets")
+	public ResponseEntity<BreachDTO> resolveTickets(@RequestBody BreachDTO breachDTO)
 	{
-		Breach breach= loginServiceImpl.resolveTickets(breachDTO);
-		System.out.println(breach.getStatus());
-		return breach;
+		BreachDTO breach= breachServiceImpl.resolveTickets(breachDTO);
+		return new ResponseEntity<>(breach, HttpStatus.OK);
 		
 	}
 

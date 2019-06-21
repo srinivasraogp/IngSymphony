@@ -2,15 +2,10 @@ package com.hcl.ingsymphony.dto;
 
 public class BreachDTO {
 	
-	private int userId;
+	
 	private int breachId;
 	private String status;
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+	
 	public int getBreachId() {
 		return breachId;
 	}

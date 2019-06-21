@@ -1,5 +1,6 @@
 package com.hcl.ingsymphony.service;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,20 +9,20 @@ import com.hcl.ingsymphony.entity.Breach;
 import com.hcl.ingsymphony.repository.BreachRepository;
 
 @Service
-public class LoginServiceImpl implements LoginService{
+public class BreachServiceImpl implements BreachService{
 
 	@Autowired
 	BreachRepository breachRepository;
 
 	
-	
 	@Override
-	public Breach resolveTickets(BreachDTO breachDTO) {
+	public BreachDTO resolveTickets(BreachDTO breachDTO) {
 		
-		Breach breach=	breachRepository.findByBreachIdAndUserId(breachDTO.getBreachId(),breachDTO.getUserId());
+		Breach breach=	breachRepository.findById(breachDTO.getBreachId());
 		breach.setStatus(breachDTO.getStatus());
 		breachRepository.save(breach);
-		return breach;
+		BeanUtils.copyProperties(breach, breachDTO);
+		return breachDTO;
 	}
 }
 
