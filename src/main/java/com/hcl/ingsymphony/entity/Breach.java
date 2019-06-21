@@ -1,28 +1,29 @@
 package com.hcl.ingsymphony.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Breach {
+public class Breach implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int breachId;
+	private int userId;
 	private String businessArea;
 	private String businessCategory;
 	private String severity;
 	private String status;
 	private String description;
-	private int userId;
+
 	
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 	public Breach(int breachId, String businessArea, String businessCategory, String severity, String status,
 			String description,int userId) {
 		super();
@@ -34,15 +35,21 @@ public class Breach {
 		this.description = description;
 		this.userId=userId;
 	}
+
 	public Breach() {
 		super();
-		
 	}
 	public int getBreachId() {
 		return breachId;
 	}
 	public void setBreachId(int breachId) {
 		this.breachId = breachId;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public String getBusinessArea() {
 		return businessArea;
@@ -74,6 +81,19 @@ public class Breach {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public Breach(int breachId, int userId, String businessArea, String businessCategory, String severity,
+			String status, String description) {
+		super();
+		this.breachId = breachId;
+		this.userId = userId;
+		this.businessArea = businessArea;
+		this.businessCategory = businessCategory;
+		this.severity = severity;
+		this.status = status;
+		this.description = description;
+	}
+	
+	
 	
 	
 
