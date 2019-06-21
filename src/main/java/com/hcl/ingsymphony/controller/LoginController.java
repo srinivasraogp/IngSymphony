@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hcl.ingsymphony.dto.LoginReqDTO;
+import com.hcl.ingsymphony.dto.LoginResDTO;
 import com.hcl.ingsymphony.service.LoginService;
 
 @RestController

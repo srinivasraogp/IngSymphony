@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hcl.ingsymphony.dto.LoginReqDTO;
+import com.hcl.ingsymphony.dto.LoginResDTO;
 import com.hcl.ingsymphony.entity.Breach;
 import com.hcl.ingsymphony.entity.Role;
 import com.hcl.ingsymphony.repository.BreachRepository;

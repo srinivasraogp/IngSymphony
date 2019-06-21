@@ -23,6 +23,8 @@ public class BreachController {
 
 	@Autowired
 	BreachServiceImpl breachServiceImpl;
+	@Autowired
+	BreachServiceIntf breachServiceIntf;
 	
 	@PutMapping(value="/resolveTickets")
 	public ResponseEntity<BreachDTO> resolveTickets(@RequestBody BreachDTO breachDTO)
@@ -31,8 +33,7 @@ public class BreachController {
 		return new ResponseEntity<>(breach, HttpStatus.OK);
 		
 	}
-	@Autowired
-	BreachServiceIntf breachServiceIntf;
+
 	
 	@PostMapping("/breach")
 	public ResponseEntity<BreachResponsDTO> createBreach(@RequestBody BreachRequestDTO breachRequestDTO){

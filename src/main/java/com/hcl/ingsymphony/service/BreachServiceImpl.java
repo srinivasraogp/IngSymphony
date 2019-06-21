@@ -14,7 +14,7 @@ import com.hcl.ingsymphony.repository.BreachRepository;
 import com.hcl.ingsymphony.repository.RuleRepository;
 
 @Service
-public class BreachServiceImpl implements BreachService{
+public class BreachServiceImpl implements BreachServiceIntf{
 
 	@Autowired
 	BreachRepository breachRepository;
@@ -31,22 +31,28 @@ public class BreachServiceImpl implements BreachService{
 		BeanUtils.copyProperties(breach, breachDTO);
 		return breachDTO;
 	}
-	
+
+
+	@Override
 	public BreachResponsDTO registerBreach(BreachRequestDTO breachRequestDTO) {
-		{
-			BreachResponsDTO breachResponseDto = new BreachResponsDTO();
-			Breach breach = new Breach();
-			Rules rule = new Rules();
-			BeanUtils.copyProperties(breachRequestDTO, breach);
-			rule = ruleRepository.findByAreaNameAndCategoryName(breachRequestDTO.getBusinessArea(),breachRequestDTO.getBusinessCategory());
-			if(rule != null) {
-			breach.setSeverity(rule.getSeverity());	
-	     	}
-			
-			breach = breachRepository.save(breach);
-			BeanUtils.copyProperties(breach, breachResponseDto);
 		
-			return breachResponseDto;
-		}
-	}}
+				BreachResponsDTO breachResponseDto = new BreachResponsDTO();
+				Breach breach = new Breach();
+				Rules rule = new Rules();
+				BeanUtils.copyProperties(breachRequestDTO, breach);
+				rule = ruleRepository.findByAreaNameAndCategoryName(breachRequestDTO.getBusinessArea(),breachRequestDTO.getBusinessCategory());
+				if(rule != null) {
+				breach.setSeverity(rule.getSeverity());	
+		     	}
+				
+				breach = breachRepository.save(breach);
+				BeanUtils.copyProperties(breach, breachResponseDto);
+			
+				return breachResponseDto;
+			}
+	
+	
+	
+	}
+
 
