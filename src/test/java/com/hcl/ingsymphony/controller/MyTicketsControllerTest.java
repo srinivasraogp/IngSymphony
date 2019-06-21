@@ -18,8 +18,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hcl.ingsymphony.entity.MyTicket;
 import com.hcl.ingsymphony.service.MyTicketService;
 
-import junit.framework.Assert;
-
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = MyTicketsController.class)
 public class MyTicketsControllerTest {
@@ -29,7 +27,7 @@ public class MyTicketsControllerTest {
 	private MyTicketService myTicketService;
 
 	@Test
-	public void getSummary() throws Exception {
+	public void myTickets() throws Exception {
 		MyTicket mockTicket = new MyTicket();
 		mockTicket.setBusinessArea("abc");
 		mockTicket.setBusinessCategory("Aclass");
@@ -45,7 +43,7 @@ public class MyTicketsControllerTest {
 		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 		String outputInJson = result.getResponse().getContentAsString();
 		String inputInJson = this.mapToJson(mockTicket);
-		Assert.assertEquals(outputInJson, inputInJson);
+		org.junit.Assert.assertEquals(outputInJson, inputInJson);
 
 	}
 

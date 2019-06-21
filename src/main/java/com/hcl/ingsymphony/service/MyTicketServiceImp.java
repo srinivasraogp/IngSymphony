@@ -7,7 +7,7 @@ import com.hcl.ingsymphony.entity.MyTicket;
 import com.hcl.ingsymphony.repository.MyTicketRespository;
 
 @Service
-public class MyTicketSericeImp implements MyTicketService {
+public class MyTicketServiceImp implements MyTicketService {
 	@Autowired
 	private MyTicketRespository myTicketRepository;
 

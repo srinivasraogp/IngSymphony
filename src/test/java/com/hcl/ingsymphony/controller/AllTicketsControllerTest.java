@@ -1,5 +1,6 @@
 package com.hcl.ingsymphony.controller;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -18,13 +19,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hcl.ingsymphony.entity.AllTickets;
 import com.hcl.ingsymphony.service.AllTicketsService;
 
-import junit.framework.Assert;
-
-
-
-
 @RunWith(SpringRunner.class)
-@WebMvcTest(value = MyTicketsController.class)
+@WebMvcTest(value = AllTicketsController.class)
 public class AllTicketsControllerTest {
 	@Autowired
 	private MockMvc mockMvc;
@@ -43,7 +39,7 @@ public class AllTicketsControllerTest {
 		
 		Mockito.when(allTicketService.getAllTickets(Mockito.anyLong())).thenReturn(mockTicket);
 
-		String URI = "/ingsymphony/myTickets/123";
+		String URI = "/ingsymphony/allTickets/123";
 		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(URI).accept(MediaType.APPLICATION_JSON);
 		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 		String outputInJson = result.getResponse().getContentAsString();

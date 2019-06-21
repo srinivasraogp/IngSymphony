@@ -2,6 +2,7 @@ package com.hcl.ingsymphony.service;
 
 import static org.mockito.Mockito.when;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -11,18 +12,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.hcl.ingsymphony.entity.AllTickets;
 import com.hcl.ingsymphony.repository.AllTicketsRepository;
-import com.hcl.ingsymphony.repository.MyTicketRespository;
-
-import junit.framework.Assert;
-
-
-
 	@RunWith(SpringRunner.class)
 	@SpringBootTest
-	public class AllTicketsSericeImpTest {
+	public class AllTicketsServiceImpTest {
 
 		@InjectMocks
-		private AllTicketsService allTicketServiceImp;
+		private AllTicketsServiceImp allTicketServiceImp;
 
 		@Mock
 		private AllTicketsRepository allTicketRespository;
