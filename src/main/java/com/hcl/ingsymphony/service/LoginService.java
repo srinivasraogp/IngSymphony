@@ -1,11 +1,12 @@
 package com.hcl.ingsymphony.service;
 
-import org.springframework.web.bind.annotation.RequestBody;
+import java.util.List;
 
-import com.hcl.ingsymphony.dto.BreachDTO;
-import com.hcl.ingsymphony.entity.Breach;
+import com.hcl.ingsymphony.dto.LoginReqDTO;
+import com.hcl.ingsymphony.dto.LoginResDTO;
 
 public interface LoginService {
-	public Breach resolveTickets(@RequestBody BreachDTO breachDTO);
+
+	List<LoginResDTO> validateLogin(LoginReqDTO userLoginDto);
 
 }
