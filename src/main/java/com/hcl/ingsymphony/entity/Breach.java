@@ -15,8 +15,16 @@ public class Breach {
 	private String severity;
 	private String status;
 	private String description;
+	private int userId;
+	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	public Breach(int breachId, String businessArea, String businessCategory, String severity, String status,
-			String description) {
+			String description,int userId) {
 		super();
 		this.breachId = breachId;
 		this.businessArea = businessArea;
@@ -24,6 +32,7 @@ public class Breach {
 		this.severity = severity;
 		this.status = status;
 		this.description = description;
+		this.userId=userId;
 	}
 	public Breach() {
 		super();
