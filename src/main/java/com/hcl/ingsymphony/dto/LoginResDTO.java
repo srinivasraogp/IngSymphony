@@ -1,3 +1,4 @@
+
 package com.hcl.ingsymphony.dto;
 
 public class LoginResDTO {
